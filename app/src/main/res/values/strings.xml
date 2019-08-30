@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Janken pon</string>
+    <string name="img_player">player</string>
+    <string name="img_bot">bot</string>
+    <string name="tx_result">Result</string>
+    <string name="tx_vs">X</string>
+    <string name="tx_df_pt">0</string>
+    <string name="txt_name_player">Player</string>
+    <string name="txt_name_bot">Bot</string>
+    <string name="tx_result_0">Draw</string>
+    <string name="tx_result_1">You won!</string>
+    <string name="tx_result_2">Bot won!</string>
+    <string name="bt_clean">Clear Scoreboard</string>
+    <string name="al_t_0">Draw</string>
+    <string name="al_m_0">Tied!</string>
+    <string name="al_t_1">Has won</string>
+    <string name="al_m_1">You won!</string>
+    <string name="al_t_2">Lost</string>
+    <string name="al_m_2">You lost!</string>
+    <string name="al_c">OK</string>
+</resources>
