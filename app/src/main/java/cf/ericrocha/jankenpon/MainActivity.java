@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 //import androidx.appcompat.app.AlertDialog;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
             tx_pt_p.setText(result);
         }
 
+        if(pt_p == 5 || pt_b == 5){
+            end_match(view);
+        }
+
 
     }
     public void  bt_paper_click(View view){
@@ -99,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
             pt_p = pt_p + 1;
             String result = String.valueOf(pt_p);
             tx_pt_p.setText(result);
+        }
+        if(pt_p == 5 || pt_b == 5){
+            end_match(view);
         }
     }
     public void  bt_scissors_click(View view){
@@ -121,9 +129,13 @@ public class MainActivity extends AppCompatActivity {
             tx_pt_p.setText(result);
         }
 
+        if(pt_p == 5 || pt_b == 5){
+            end_match(view);
+        }
+
     }
 
-    public void  bt_clean_click(View view){
+    public void end_match(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if(pt_p > pt_b){
             builder.setTitle(R.string.al_t_1);
@@ -142,7 +154,23 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setPositiveButton(R.string.al_c, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // FIRE ZE MISSILES!
+                img_player.setImageResource(0);
+                img_bot.setImageResource(0);
+                pt_b = 0;
+                tx_pt_b.setText(R.string.tx_df_pt);
+                pt_p = 0;
+                tx_pt_p.setText(R.string.tx_df_pt);
+            }
+        });
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                img_player.setImageResource(0);
+                img_bot.setImageResource(0);
+                pt_b = 0;
+                tx_pt_b.setText(R.string.tx_df_pt);
+                pt_p = 0;
+                tx_pt_p.setText(R.string.tx_df_pt);
             }
         });
         if(pt_b != 0 || pt_p !=0){
@@ -150,12 +178,11 @@ public class MainActivity extends AppCompatActivity {
             alert.show();
         }
 
-        img_player.setImageResource(0);
-        img_bot.setImageResource(0);
-        pt_b = 0;
-        tx_pt_b.setText(R.string.tx_df_pt);
-        pt_p = 0;
-        tx_pt_p.setText(R.string.tx_df_pt);
+
+    }
+
+    public void  bt_clean_click(View view){
+        end_match(view);
 
     }
 
